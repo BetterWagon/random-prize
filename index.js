@@ -5,7 +5,7 @@ const authRoom = process.env.RANDOM_PRIZE_AUTH.split(",");
 let lastWinTime;
 
 function readTime() {
-	fs.readFile("./node_modules/random-prize/lastWinTime", "utf8", (err, data) => {
+	fs.readFile("./data/prizeLastWin", "utf8", (err, data) => {
 		if (err) {
 			console.error(err);
 			return;
@@ -17,7 +17,7 @@ function readTime() {
 function saveTime() {
 	const currentUnixTime = Date.now();
 	fs.writeFile(
-		"./node_modules/random-prize/lastWinTime",
+		"./data/prizeLastWin",
 		currentUnixTime.toString(),
 		(err) => {
 			if (err) {
