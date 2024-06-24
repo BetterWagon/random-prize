@@ -1,6 +1,7 @@
-# random-prize Plugin for BetterWagon
+> [!WARNING]  
+> This document is incomplete or out of date
 
-This plugin requires `fs` from npm.
+# random-prize Plugin for BetterWagon
 
 ## .env Template Example
 
