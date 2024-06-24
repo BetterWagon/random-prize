@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/BetterBoxx/random-prize/issues"
   },
+  "type": "module",
   "homepage": "https://github.com/BetterBoxx/random-prize#readme"
 }
