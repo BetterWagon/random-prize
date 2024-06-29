@@ -1,4 +1,7 @@
+import * as dotenv from "dotenv";
 import fs from "fs";
+
+dotenv.config({ path: "./.env" });
 
 const authRoom = process.env.RANDOM_PRIZE_AUTH.split(",");
 
@@ -16,16 +19,12 @@ function readTime() {
 
 function saveTime() {
 	const currentUnixTime = Date.now();
-	fs.writeFile(
-		"./data/prizeLastWin",
-		currentUnixTime.toString(),
-		(err) => {
-			if (err) {
-				console.error(err);
-				return;
-			}
+	fs.writeFile("./data/prizeLastWin", currentUnixTime.toString(), (err) => {
+		if (err) {
+			console.error(err);
+			return;
 		}
-	);
+	});
 }
 
 readTime();
