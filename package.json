@@ -1,6 +1,6 @@
 {
   "name": "random-prize",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This plugin requires `fs` from npm.",
   "main": "index.js",
   "scripts": {
