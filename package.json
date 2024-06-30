@@ -16,5 +16,8 @@
     "url": "https://github.com/BetterBoxx/random-prize/issues"
   },
   "type": "module",
-  "homepage": "https://github.com/BetterBoxx/random-prize#readme"
+  "homepage": "https://github.com/BetterBoxx/random-prize#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
 }
