@@ -29,16 +29,30 @@ function saveTime() {
 
 readTime();
 
-export function randomPrize(msg) {
-	if (authRoom.includes(msg.room)) {
-		if (Date.now() - lastWinTime < 604800000) {
+let blacklist = [];
+
+function loadBlacklist() {
+	fs.readFile("./data/blacklist.json", "utf8", (err, data) => {
+		if (err) {
+			console.error(err);
 			return;
 		}
+		blacklist = JSON.parse(data);
+	});
+}
 
-		if (Math.random() <= 0.001) {
-			msg.reply(msg.sender.name + process.env.RANDOM_PRIZE);
-			saveTime();
-			readTime();
-		}
+loadBlacklist();
+
+export function randomPrize(msg) {
+	if (!authRoom.includes(msg.room) || 
+        blacklist.some(prefix => msg.sender.name.toLowerCase().startsWith(prefix)) || 
+        (Date.now() - lastWinTime < 604800000)) {
+		return;
+	}
+
+	if (Math.random() <= 0.001) {
+		msg.reply(msg.sender.name + process.env.RANDOM_PRIZE);
+		saveTime();
+		readTime();
 	}
 }
