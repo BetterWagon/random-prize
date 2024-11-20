@@ -44,9 +44,13 @@ function loadBlacklist() {
 loadBlacklist();
 
 export function randomPrize(msg) {
-	if (!authRoom.includes(msg.room) || 
-        blacklist.some(prefix => msg.sender.name.toLowerCase().startsWith(prefix)) || 
-        (Date.now() - lastWinTime < 604800000)) {
+	if (
+		!authRoom.includes(msg.room) ||
+		blacklist.some((prefix) =>
+			msg.sender.name.toLowerCase().startsWith(prefix)
+		) ||
+		Date.now() - lastWinTime < 864000000
+	) {
 		return;
 	}
 
